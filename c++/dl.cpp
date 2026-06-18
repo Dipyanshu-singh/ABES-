@@ -33,14 +33,14 @@ void deleteatfront(Node* &Head){
     if(Head==NULL){
         return;
     }
-    Node* temp=Head;
+    Node *temp=Head;
     if(Head != NULL){
         Head->prev=nullptr;
     }
     delete temp;
 
 }
-void printList(Node* head) {
+void printList(Node *head) {
     while(head != NULL) {
         cout << head->data << " <-> ";
         head = head->next;
@@ -70,7 +70,7 @@ int main()
         temp->next=new Node(x);
         temp=temp->next;
     }
-     deleteatfront(head);
+    //  deleteatfront(head);
      cout << "\nInitial List: ";
     printList(head);
 

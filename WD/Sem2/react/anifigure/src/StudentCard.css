@@ -17,6 +17,7 @@
 }
 
 .card p {
+  background-color: aliceblue;
   font-size: 13px;
   color: #555;
   margin: 4px 0;            
