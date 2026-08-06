@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main() {
         cout << "Sorted array: ";
@@ -20,14 +21,14 @@ int main() {
     vector<int> count(max + 1,0);
 
     for(int i = 0; i < n; i++) {
-        count[arr[i+max]]++;
+        count[arr1[i]]++;
     }
 
     int index = 0;
-    for(int i = 0; i < max+1; i++) {
+    for(int i = max;i >=0; i--) {
         if(count[i]>0){
             for(int j=0;j<count[i];j++) {
-                arr[index] = i-max;
+                arr[index] = -i;
                 index++;
             }
         }
@@ -35,36 +36,5 @@ int main() {
 
     for(int i = 0; i < n; i++) {
         cout << arr[i] << " ";
-    }
-
-
-    // without comparsion
-    int k;cin>>k;
-    vector<int> ar(k);
-    for(int i = 0; i < k; i++) {
-    cin >> ar[i];
-    }
-    
-
-    int mx=*max_element(ar.begin(),ar.end());
-    vector<int> ct(mx+1,0);
-    
-     for(int i=0;i<k;i++){
-        ct[ar[i]]++;
-     }
-
-    int id=0;
-    for(int i=0;i<=mx;i++){
-        if(ct[i]>0){
-            for(int j=0;j<ct[i];j++){
-                ar[id]=i;
-                id++;
-            }
-        }
-    }
-
-    cout << "Sorted array: ";
-    for(int i = 0; i < k; i++) {
-        cout << ar[i] << " ";
     }
 }
