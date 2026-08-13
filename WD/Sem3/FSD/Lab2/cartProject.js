@@ -40,6 +40,30 @@ const displayCart = async () =>{
     console.log(`total payable amt Rs. ${total}`);
     
 };
+const removeProduct=async(pid)=>{
+    const cart = await getCart();
+    let x=cart.length;
+    const nproducts=cart.filter((item)=>item.id!==pid);
+    let y= nproducts.length;
+    if(y<x){
+        saveCart(nproducts);
+        console.log("deleted");
+    }
+    else{
+        console.log("not found");
+    }
+};
+const updateQuantity=async(pid)=>{
+    const cart = await getCart();
+    if(isFoundInCart){
+        isFoundInCart.qty -= 1;
+        await saveCart(cart);
+        console.log(`${isFoundInCart.name} quantity updated`);
+    }
+    else{
+        console.log(`Product with id ${pid} not found`);
+    }
+};
 
 
 const main = async () => {
@@ -72,10 +96,12 @@ const main = async () => {
                 });
                 break;
             case 3:
-                console.log('remove product');
+                let pid=await cin.question("Enter product id:");
+                await removeProduct(Number(pid));
                 break;
             case 4:
-                console.log('update quantity');
+                let pid2=await cin.question("Enter product id:");
+                await updateQuantity(Number(pid2));
                 break;
             case 5:
                 console.log('checkout');      
