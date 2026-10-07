@@ -49,9 +49,9 @@ int main()
     bank_user U1;
     cout << "enter yo name: ";
     getline(cin, U1.name);
-    cout << "enter account number";
+    cout << "enter account number: ";
     cin >> U1.acc_no;
-    cout << "enter IFSC";
+    cout << "enter IFSC: ";
     cin >> U1.IFSC;
     cout << "enter today's date: (mmddyyyy)";
     cin >> U1.DOF;
